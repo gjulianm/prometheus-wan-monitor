@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus WAN Monitor
+
+[Service]
+Restart=always
+User=root
+ExecStart=/usr/local/bin/prometheus-wan-exporter
+TimeoutStopSec=20s
+
+[Install]
+WantedBy=multi-user.target
