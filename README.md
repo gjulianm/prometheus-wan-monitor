@@ -2,7 +2,7 @@
 
 This is a simple Python application that takes measurements of your Internet collection and exposes them in Prometheus format.
 
-The use is simple: install this with `pip install git+https://github.com/gjulianm/prometheus-wan-exporter.git` and run it with the command `prometheus-wan-exporter`. Then, you can add it to your Prometheus scraping configuration. By default it listens on port 26543, but it can be changed with the `--port` CLI argument.
+The use is simple: install this with `pip install git+https://github.com/gjulianm/prometheus-wan-exporter.git` and run it with the command `prometheus-wan-exporter`. Then, you can add it to your Prometheus scraping configuration. By default it listens on port 26543, but it can be changed with the `--port` CLI argument. There are other settings you can change, run `prometheus-wan-exporter --help` to see the available options.
 
 ## Speed test
 
@@ -16,4 +16,8 @@ Latency test is done by pinging some servers (for now, Google and Cloudflare DNS
 
 ## Running as a service
 
-You can use the prometheus-wan-monitor.service, set in *ExecStart* the correct path of the prometheus-wan-exporter executable and then drop the file in */etc/systemd/system*. After running `systemctl daemon-reload`, you will be able to use prometheus-wan-exporter as a regular systemd service and enable it on boot if you want.
+You can use the prometheus-wan-monitor.service, set in *ExecStart* the correct path of the prometheus-wan-exporter executable (and change any CLI arguments you want) and then drop the file in */etc/systemd/system*. After running `systemctl daemon-reload`, you will be able to use prometheus-wan-exporter as a regular systemd service and enable it on boot if you want.
+
+## Dashboard
+
+In case it is helpful, you can download [the dashboard](dashboard.json) and import it in your Grafana instance.
