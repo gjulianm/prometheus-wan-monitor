@@ -32,6 +32,13 @@ def speedtest_check(speed):
 
     results = speed.results.dict()
 
+    with Bandwidth._lock:
+        # Clear old results in this hacky way because the developers don't want to provide a
+        # clear() method to avoid old labels persisting.
+        #
+        # See https://github.com/prometheus/client_python/issues/277
+        Bandwidth._metrics.clear()
+
     Bandwidth.labels('upload', results['server']['host']).set(
         results['upload'])
     Bandwidth.labels('download', results['server']['host']).set(

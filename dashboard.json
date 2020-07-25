@@ -118,7 +118,7 @@
       "pluginVersion": "7.1.1",
       "targets": [
         {
-          "expr": "wan_bandwidth_bps",
+          "expr": "avg(wan_bandwidth_bps) by (dir)",
           "interval": "",
           "legendFormat": " {{ dir }}",
           "refId": "A"
@@ -175,7 +175,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "wan_bandwidth_bps",
+          "expr": "avg(wan_bandwidth_bps) by (dir)",
           "interval": "",
           "legendFormat": "{{ dir }}",
           "refId": "A"
@@ -201,7 +201,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:72",
           "format": "bps",
           "label": null,
           "logBase": 1,
@@ -210,7 +209,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:73",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -357,7 +355,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:72",
           "format": "s",
           "label": null,
           "logBase": 1,
@@ -366,7 +363,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:73",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -453,6 +449,7 @@
       "yBucketSize": null
     }
   ],
+  "refresh": "1m",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [],
@@ -460,7 +457,7 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -479,5 +476,5 @@
   "timezone": "",
   "title": "WAN Exporter",
   "uid": "CjQ0HVmRz",
-  "version": 1
+  "version": 2
 }
